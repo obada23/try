@@ -191,41 +191,16 @@
             <div class="relative rounded-3xl overflow-hidden shadow-2xl h-64 md:h-96 bg-gradient-to-r from-red-600 via-red-700 to-red-800">
                 <!-- Responsive hero image with fallbacks; decorative so empty alt -->
                 <picture class="absolute inset-0 z-0" aria-hidden="true">
-                    <source
-                      type="image/avif"
-                      srcset="
-                        https://images.unsplash.com/photo-1541976076758-347942db1970?auto=format&fit=crop&fm=avif&w=640&q=60 640w,
-                        https://images.unsplash.com/photo-1541976076758-347942db1970?auto=format&fit=crop&fm=avif&w=1024&q=60 1024w,
-                        https://images.unsplash.com/photo-1541976076758-347942db1970?auto=format&fit=crop&fm=avif&w=1536&q=60 1536w,
-                        https://images.unsplash.com/photo-1541976076758-347942db1970?auto=format&fit=crop&fm=avif&w=2048&q=60 2048w
-                      "
-                      sizes="(min-width: 1024px) 1280px, 100vw"
-                    />
-                    <source
-                      type="image/webp"
-                      srcset="
-                        https://images.unsplash.com/photo-1541976076758-347942db1970?auto=format&fit=crop&fm=webp&w=640&q=70 640w,
-                        https://images.unsplash.com/photo-1541976076758-347942db1970?auto=format&fit=crop&fm=webp&w=1024&q=70 1024w,
-                        https://images.unsplash.com/photo-1541976076758-347942db1970?auto=format&fit=crop&fm=webp&w=1536&q=70 1536w,
-                        https://images.unsplash.com/photo-1541976076758-347942db1970?auto=format&fit=crop&fm=webp&w=2048&q=70 2048w
-                      "
-                      sizes="(min-width: 1024px) 1280px, 100vw"
-                    />
-                    <img
-                      src="https://images.unsplash.com/photo-1541976076758-347942db1970?auto=format&fit=crop&w=1920&q=75"
-                      alt=""
-                      class="w-full h-full object-cover object-center"
-                      decoding="async"
-                      loading="eager"
-                      fetchpriority="high"
-                    />
+                    <source srcset="a.jpg" type="image/jpeg" />
+                    <img src="a.jpg" alt="" class="w-full h-full object-cover object-center" />
                 </picture>
+
                 <!-- Gradient overlay for text readability -->
                 <div class="absolute inset-0 z-10 bg-gradient-to-r from-black/60 via-black/20 to-transparent"></div>
                 <!-- Content -->
                 <div class="absolute inset-0 z-20 flex items-center justify-center text-center p-6">
                     <div>
-                        <h1 class="text-3xl md:text-5xl font-bold text-white drop-shadow-md mb-4">أشهى الحلويات اللبنانية</h1>
+                        <h1 class="text-3xl md:text-5xl font-bold text-white drop-shadow-md mb-4">أشهى الحلويات</h1>
                         <p class="text-lg md:text-xl text-white/90 mb-6">صُنعت بحب من أجود المكونات</p>
                         <button class="bg-white text-red-600 px-8 py-3 rounded-xl font-bold shadow-xl hover:bg-red-50 transition-all transform hover:scale-105">
                             اطلب الآن

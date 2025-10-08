@@ -14,6 +14,8 @@
         --main-color: #B20000;
       }
 
+      
+
       * {
         font-family: "Tajawal", sans-serif;
       }
@@ -139,12 +141,12 @@
       .section-title::after {
         content: "";
         position: absolute;
-        bottom: -10px;
+        bottom: -1px;
         left: 50%;
         transform: translateX(-50%);
-        width: 60px;
+        width: 120px;
         height: 4px;
-        background: linear-gradient(90deg, #dc143c, #ff6b6b);
+        background: var(--main-color);
         border-radius: 2px;
       }
 
@@ -206,7 +208,7 @@
       
       .category-item:hover {
         transform: translateY(-8px);
-        box-shadow: 0 12px 25px rgba(220, 20, 60, 0.2);
+        box-shadow: 0 0px 10px var(--main-color);
       }
       
       .category-item:hover img {
@@ -232,12 +234,12 @@
       .recommended h2::after {
         content: "";
         position: absolute;
-        bottom: -10px;
+        bottom: -1px;
         left: 50%;
         transform: translateX(-50%);
-        width: 60px;
+        width: 120px;
         height: 4px;
-        background: linear-gradient(90deg, #dc143c, #ff6b6b);
+        background: var(--main-color);
         border-radius: 2px;
       }
       
@@ -282,12 +284,12 @@
       .product-price {
         font-size: 20px;
         font-weight: bold;
-        color: #dc143c;
+        color: var(--main-color);
         margin-bottom: 15px;
       }
       
       .buy-button {
-        background: linear-gradient(45deg, #dc143c, #b91c3c);
+        background: var(--main-color);
         color: white;
         border: none;
         padding: 12px 25px;
@@ -574,10 +576,11 @@
           <div class="flex justify-start">
             <button
               id="menuBtn"
-              class="p-2 hover:bg-red-50 rounded-lg transition-colors"
+              class="p-2 rounded-lg transition-colors"
             >
               <svg
-                class="w-6 h-6 text-red-600"
+                class="w-7 h-7"
+                style="color:var(--main-color)"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -723,30 +726,30 @@
         <nav class="container mx-auto px-6 py-4 flex flex-col gap-2">
           <a
             href="#home"
-            class="text-gray-700 hover:text-red-600 hover:bg-red-50 py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2"
+            class="text-gray-700 hover:text-[#B20000] py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2"
           >
             الرئيسية
           </a>
           <a
             href="#categories"
-            class="text-gray-700 hover:text-red-600 hover:bg-red-50 py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2"
+            class="text-gray-700 hover:text-[#B20000] py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2"
           >
             الأصناف
           </a>
           <a
             href="#about"
-            class="text-gray-700 hover:text-red-600 hover:bg-red-50 py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2"
+            class="text-gray-700 hover:text-[#B20000] py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2"
           >
             نبذة عنا
           </a>
           <button
             id="authBtnMobile"
-            class="text-gray-700 hover:text-red-600 hover:bg-red-50 py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2"
+            class="text-gray-700 hover:text-[#B20000] py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2"
           >
             تسجيل دخول
           </button>
           <button
-            class="text-gray-700 hover:text-red-600 hover:bg-red-50 py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2"
+            class="text-gray-700 hover:text-[#B20000] py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2"
           >
             معرض الصور
           </button>
@@ -791,8 +794,8 @@
                 صُنعت بحب من أجود المكونات
               </p>
               <button
-                class="bg-white text-red-600 px-6 sm:px-8 py-2 sm:py-3 rounded-xl font-bold shadow-xl hover:bg-red-50 transition-all transform hover:scale-105 text-sm sm:text-base"
-              >
+                class="bg-white px-6 sm:px-8 py-2 sm:py-3 rounded-xl font-bold shadow-xl  transition-all transform hover:scale-105 text-sm sm:text-base"
+              style="color: var(--main-color)">
                 اطلب الآن
               </button>
             </div>
@@ -848,7 +851,7 @@
           <div class="product-content">
             <h3>كعكة البستاشيو</h3>
             <div class="product-price">55.00 ₪</div>
-            <button class="buy-button">اشتري الآن</button>
+            <button class="buy-button">إضافة الى السلة</button>
           </div>
         </div>
         <div class="product-item">
@@ -856,7 +859,7 @@
           <div class="product-content">
             <h3>كعكة الجلاكسي</h3>
             <div class="product-price">65.00 ₪</div>
-            <button class="buy-button">اشتري الآن</button>
+            <button class="buy-button">إضافة الى السلة</button>
           </div>
         </div>
         <div class="product-item">
@@ -864,7 +867,7 @@
           <div class="product-content">
             <h3>كعكة الاناناس</h3>
             <div class="product-price">55.00 ₪</div>
-            <button class="buy-button">اشتري الآن</button>
+            <button class="buy-button">إضافة الى السلة</button>
           </div>
         </div>
         <div class="product-item">
@@ -872,7 +875,7 @@
           <div class="product-content">
             <h3>كعكة الفليك</h3>
             <div class="product-price">55.00 ₪</div>
-            <button class="buy-button">اشتري الآن</button>
+            <button class="buy-button">إضافة الى السلة</button>
           </div>
         </div>
         <div class="product-item">
@@ -880,7 +883,7 @@
           <div class="product-content">
             <h3>كعكة الرافيلو</h3>
             <div class="product-price">60.00 ₪</div>
-            <button class="buy-button">اشتري الآن</button>
+            <button class="buy-button">إضافة الى السلة</button>
           </div>
         </div>
         <div class="product-item">
@@ -888,7 +891,7 @@
           <div class="product-content">
             <h3>كعكة اللوتس</h3>
             <div class="product-price">65.00 ₪</div>
-            <button class="buy-button">اشتري الآن</button>
+            <button class="buy-button">إضافة الى السلة</button>
           </div>
         </div>
       </div>
@@ -915,19 +918,19 @@
           <div id="branchesList" class="hidden absolute left-0 right-0 mt-2 bg-white rounded-lg shadow-lg z-10 border border-gray-200">
             <div class="space-y-3 p-4 text-black">
               <div class="text-center">
-                <p class="font-semibold mb-1">📍 بيروت - الحمرا</p>
+                <p class="font-semibold mb-1">📍 رفيديا - بجانب خميسيات</p>
                 <p class="text-sm">📞 01-234567</p>
               </div>
               <div class="text-center">
-                <p class="font-semibold mb-1">📍 طرابلس - التل</p>
+                <p class="font-semibold mb-1">📍 رفيديا - مقابل مترو ماركت</p>
                 <p class="text-sm">📞 06-765432</p>
               </div>
               <div class="text-center">
-                <p class="font-semibold mb-1">📍 صيدا - البحر</p>
+                <p class="font-semibold mb-1">📍 البلد - دوار الشهداء</p>
                 <p class="text-sm">📞 07-345678</p>
               </div>
               <div class="text-center">
-                <p class="font-semibold mb-1">📍 زحلة - الساحة</p>
+                <p class="font-semibold mb-1">📍 شرقا - بجانب بن زحيمان</p>
                 <p class="text-sm">📞 08-987654</p>
               </div>
             </div>
@@ -939,24 +942,24 @@
           <h3 class="text-xl font-bold mb-4 footer-title">فروعنا</h3>
           <div class="space-y-3 text-black">
             <div class="text-center">
-              <p class="font-semibold mb-1">📍 بيروت - الحمرا</p>
+              <p class="font-semibold mb-1">📍 رفيديا - بجانب خميسيات</p>
               <p class="text-sm">📞 01-234567</p>
             </div>
             <div class="text-center">
-              <p class="font-semibold mb-1">📍 طرابلس - التل</p>
+              <p class="font-semibold mb-1">📍 رفيديا -مقابل مترو ماركت</p>
               <p class="text-sm">📞 06-765432</p>
             </div>
             <div class="text-center">
-              <p class="font-semibold mb-1">📍 صيدا - البحر</p>
+              <p class="font-semibold mb-1">📍 البلد - دوار الشهداء</p>
               <p class="text-sm">📞 07-345678</p>
             </div>
             <div class="text-center">
-              <p class="font-semibold mb-1">📍 زحلة - الساحة</p>
+              <p class="font-semibold mb-1">📍 شرقا - بجانب بن زحيمان</p>
               <p class="text-sm">📞 08-987654</p>
             </div>
           </div>
         </div>
-      </div>
+      </div> 
 
       <!-- أصنافنا - Dropdown للجوال فقط -->
       <div class="relative">
@@ -1048,7 +1051,8 @@
         </div>
       </div>
     </div>
-    <div class="border-t border-red-800 pt-6 text-center">
+    <div class="border-t border-red-800 pt-6 text-center"
+    >
       <p class="footer-text font-semibold">
         &copy; 2025 جاتوه لبنان. جميع الحقوق محفوظة.
       </p>

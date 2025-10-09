@@ -14,8 +14,6 @@
         --main-color: #B20000;
       }
 
-      
-
       * {
         font-family: "Tajawal", sans-serif;
       }
@@ -50,9 +48,42 @@
         transform: scale(1.05);
       }
 
+      /* Mobile Menu Styles - Fixed */
       .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Start off-screen */
+        width: 80%; /* Take 80% of screen width */
+        height: 100vh;
+        background: white;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+      }
+
+      .mobile-menu.active {
+        right: 0; /* Slide in from right */
+      }
+
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
         transition: all 0.3s ease;
       }
+
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
       header nav a {
         display: flex;
         align-items: center;
@@ -717,34 +748,45 @@
           </div>
         </div>
       </div>
+    </header>
 
-      <!-- Mobile Menu -->
-      <div
-        id="mobileMenu"
-        class="hidden md:hidden bg-white border-t-2 border-red-100"
-      >
-        <nav class="container mx-auto px-6 py-4 flex flex-col gap-2">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-xl font-bold" style="color: var(--main-color)">القائمة</h2>
+          <button id="closeMenuBtn" class="p-2">
+            <svg class="w-6 h-6" style="color: var(--main-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <nav class="flex flex-col gap-4">
           <a
             href="#home"
-            class="text-gray-700 hover:text-[#B20000] py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2"
+            class="text-gray-700 hover:text-[#B20000] py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2 border-b border-gray-100"
           >
             الرئيسية
           </a>
           <a
             href="#categories"
-            class="text-gray-700 hover:text-[#B20000] py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2"
+            class="text-gray-700 hover:text-[#B20000] py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2 border-b border-gray-100"
           >
             الأصناف
           </a>
           <a
             href="#about"
-            class="text-gray-700 hover:text-[#B20000] py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2"
+            class="text-gray-700 hover:text-[#B20000] py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2 border-b border-gray-100"
           >
             نبذة عنا
           </a>
           <button
             id="authBtnMobile"
-            class="text-gray-700 hover:text-[#B20000] py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2"
+            class="text-gray-700 hover:text-[#B20000] py-3 px-4 rounded-lg font-bold transition-all flex items-center gap-2 border-b border-gray-100 text-right"
           >
             تسجيل دخول
           </button>
@@ -755,7 +797,7 @@
           </button>
         </nav>
       </div>
-    </header>
+    </div>
 
     <!-- Banner -->
     <section id="home" class="w-full md:py-8">
@@ -1026,7 +1068,8 @@
         <h3 class="text-xl font-bold mb-4 footer-title">تابعنا</h3>
         <div class="flex justify-center gap-4">
           <a
-              href="#"
+              href="https://www.facebook.com/gatoh.lobnan"
+              target="_blank"
               class="w-10 h-10 bg-red-800 rounded-full flex items-center justify-center hover:bg-red-900 transition-colors"
           >
               <!-- أيقونة فيسبوك -->
@@ -1038,7 +1081,7 @@
           </a>
 
           <a
-              href="#"
+              href="https://wa.me/970593969286" target="_blank"
               class="w-10 h-10 bg-red-800 rounded-full flex items-center justify-center hover:bg-red-900 transition-colors"
           >
               <!-- أيقونة واتساب -->
@@ -1064,10 +1107,24 @@
       // Mobile menu toggle
       const menuBtn = document.getElementById("menuBtn");
       const mobileMenu = document.getElementById("mobileMenu");
+      const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
+      const closeMenuBtn = document.getElementById("closeMenuBtn");
 
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
+      function openMobileMenu() {
+        mobileMenu.classList.add("active");
+        mobileMenuOverlay.classList.add("active");
+        document.body.style.overflow = "hidden"; // Prevent scrolling when menu is open
+      }
+
+      function closeMobileMenu() {
+        mobileMenu.classList.remove("active");
+        mobileMenuOverlay.classList.remove("active");
+        document.body.style.overflow = ""; // Restore scrolling
+      }
+
+      menuBtn.addEventListener("click", openMobileMenu);
+      closeMenuBtn.addEventListener("click", closeMobileMenu);
+      mobileMenuOverlay.addEventListener("click", closeMobileMenu);
 
       // Smooth scroll for navigation
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -1080,7 +1137,7 @@
               block: "start",
             });
             // Close mobile menu if open
-            mobileMenu.classList.add("hidden");
+            closeMobileMenu();
           }
         });
       });

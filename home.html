@@ -384,6 +384,105 @@
       .header-title {
         color: var(--main-color);
       }
+
+      /* ======= FOOTER DROPDOWNS - IMPROVED DESIGN ======= */
+      .footer-dropdown {
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-dropdown-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0;
+        cursor: pointer;
+        border-bottom: 2px solid rgba(178, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .footer-dropdown-header:hover {
+        border-bottom-color: var(--main-color);
+      }
+
+      .footer-dropdown-header h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        transition: color 0.3s ease;
+        text-align: center;
+      }
+
+      .footer-dropdown-header:hover h3 {
+        color: var(--main-color);
+      }
+
+      .footer-dropdown-icon {
+        transition: transform 0.3s ease;
+        position: absolute;
+        left: 0;
+      }
+
+      .footer-dropdown.active .footer-dropdown-icon {
+        transform: rotate(180deg);
+      }
+
+      .footer-dropdown-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        /* إزالة الخلفية الملونة */
+        background: transparent;
+        margin-top: 0.5rem;
+      }
+
+      .footer-dropdown.active .footer-dropdown-content {
+        max-height: 500px;
+      }
+
+      .footer-dropdown-item {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.2s ease;
+        text-align: center;
+      }
+
+      .footer-dropdown-item:last-child {
+        border-bottom: none;
+      }
+
+      .footer-dropdown-item:hover {
+        /* إزالة الخلفية الملونة عند hover */
+        background: transparent;
+        padding-right: 0;
+      }
+
+      .footer-dropdown-item a {
+        font-weight: bold;
+        color:black;
+        text-decoration: none;
+        display: block;
+        transition: color 0.2s ease;
+      }
+
+      .footer-dropdown-item:hover a {
+        color: var(--main-color);
+      }
+
+      .branch-info {
+        text-align: center;
+        padding: 0.5rem 0;
+      }
+
+      .branch-info p {
+        margin: 0.25rem 0;
+        color: rgb(0, 0, 0);
+      }
+
+      .branch-info .branch-name {
+        font-weight: 600;
+        color: var(--main-color);
+        margin-bottom: 0.5rem;
+      }
       
       /* للأجهزة اللوحية */
       @media (max-width: 768px) {
@@ -947,119 +1046,117 @@
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-8">
-      <!-- فروعنا - Dropdown للجوال فقط -->
-      <div class="relative">
-        <!-- للجوال - Dropdown -->
-        <div class="md:hidden">
-          <button id="branchesDropdown" class="footer-title text-xl font-bold mb-4 flex items-center justify-center w-full mx-auto hover:text-red-800 transition-colors">
-            فروعنا
-            <svg class="w-4 h-4 mr-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div id="branchesList" class="hidden absolute left-0 right-0 mt-2 bg-white rounded-lg shadow-lg z-10 border border-gray-200">
-            <div class="space-y-3 p-4 text-black">
-              <div class="text-center">
-                <p class="font-semibold mb-1">📍 رفيديا - بجانب خميسيات</p>
-                <p class="text-sm">📞 01-234567</p>
-              </div>
-              <div class="text-center">
-                <p class="font-semibold mb-1">📍 رفيديا - مقابل مترو ماركت</p>
-                <p class="text-sm">📞 06-765432</p>
-              </div>
-              <div class="text-center">
-                <p class="font-semibold mb-1">📍 البلد - دوار الشهداء</p>
-                <p class="text-sm">📞 07-345678</p>
-              </div>
-              <div class="text-center">
-                <p class="font-semibold mb-1">📍 شرقا - بجانب بن زحيمان</p>
-                <p class="text-sm">📞 08-987654</p>
-              </div>
-            </div>
-          </div>
+      <!-- فروعنا - تصميم جديد للجوال -->
+      <div class="footer-dropdown md:hidden">
+        <div class="footer-dropdown-header">
+          <svg class="footer-dropdown-icon w-5 h-5" style="color: var(--main-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+          <h3 class="footer-title">فروعنا</h3>
         </div>
-
-        <!-- للشاشات الكبيرة - التصميم العادي -->
-        <div class="hidden md:block">
-          <h3 class="text-xl font-bold mb-4 footer-title">فروعنا</h3>
-          <div class="space-y-3 text-black">
-            <div class="text-center">
-              <p class="font-semibold mb-1">📍 رفيديا - بجانب خميسيات</p>
+        <div class="footer-dropdown-content">
+          <div class="footer-dropdown-item">
+            <div class="branch-info">
+              <p class="branch-name">📍 رفيديا - بجانب خميسيات</p>
               <p class="text-sm">📞 01-234567</p>
             </div>
-            <div class="text-center">
-              <p class="font-semibold mb-1">📍 رفيديا -مقابل مترو ماركت</p>
+          </div>
+          <div class="footer-dropdown-item">
+            <div class="branch-info">
+              <p class="branch-name">📍 رفيديا - مقابل مترو ماركت</p>
               <p class="text-sm">📞 06-765432</p>
             </div>
-            <div class="text-center">
-              <p class="font-semibold mb-1">📍 البلد - دوار الشهداء</p>
+          </div>
+          <div class="footer-dropdown-item">
+            <div class="branch-info">
+              <p class="branch-name">📍 البلد - دوار الشهداء</p>
               <p class="text-sm">📞 07-345678</p>
             </div>
-            <div class="text-center">
-              <p class="font-semibold mb-1">📍 شرقا - بجانب بن زحيمان</p>
+          </div>
+          <div class="footer-dropdown-item">
+            <div class="branch-info">
+              <p class="branch-name">📍 شرقا - بجانب بن زحيمان</p>
               <p class="text-sm">📞 08-987654</p>
             </div>
           </div>
         </div>
-      </div> 
+      </div>
 
-      <!-- أصنافنا - Dropdown للجوال فقط -->
-      <div class="relative">
-        <!-- للجوال - Dropdown -->
-        <div class="md:hidden">
-          <button id="categoriesDropdown" class="footer-title text-xl font-bold mb-4 flex items-center justify-center w-full mx-auto hover:text-red-800 transition-colors">
-            أصنافنا
-            <svg class="w-4 h-4 mr-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div id="categoriesList" class="hidden absolute left-0 right-0 mt-2 bg-white rounded-lg shadow-lg z-10 border border-gray-200">
-            <div class="space-y-2 p-4">
-              <a href="products.html?category=gateh" class="text-black block hover:text-red-800 transition-all duration-300 py-2 text-center border-b border-gray-100 last:border-b-0">
-                جاتوه
-              </a>
-              <a href="products.html?category=cake-pieces" class="text-black block hover:text-red-800 transition-all duration-300 py-2 text-center border-b border-gray-100 last:border-b-0">
-                قطع كيك
-              </a>
-              <a href="products.html?category=batfor" class="text-black block hover:text-red-800 transition-all duration-300 py-2 text-center border-b border-gray-100 last:border-b-0">
-                بتفور
-              </a>
-              <a href="products.html?category=fridge-batfor" class="text-black block hover:text-red-800 transition-all duration-300 py-2 text-center border-b border-gray-100 last:border-b-0">
-                بتفور تلاجة
-              </a>
-              <a href="products.html?category=croissant" class="text-black block hover:text-red-800 transition-all duration-300 py-2 text-center border-b border-gray-100 last:border-b-0">
-                كوروسون
-              </a>
-              <a href="products.html?category=donuts" class="text-black block hover:text-red-800 transition-all duration-300 py-2 text-center">
-                دونات
-              </a>
-            </div>
+      <!-- للشاشات الكبيرة - التصميم العادي -->
+      <div class="hidden md:block">
+        <h3 class="text-xl font-bold mb-4 footer-title">فروعنا</h3>
+        <div class="space-y-3 text-black">
+          <div class="text-center">
+            <p class="font-semibold mb-1">📍 رفيديا - بجانب خميسيات</p>
+            <p class="text-sm">📞 01-234567</p>
+          </div>
+          <div class="text-center">
+            <p class="font-semibold mb-1">📍 رفيديا - مقابل مترو ماركت</p>
+            <p class="text-sm">📞 06-765432</p>
+          </div>
+          <div class="text-center">
+            <p class="font-semibold mb-1">📍 البلد - دوار الشهداء</p>
+            <p class="text-sm">📞 07-345678</p>
+          </div>
+          <div class="text-center">
+            <p class="font-semibold mb-1">📍 شرقا - بجانب بن زحيمان</p>
+            <p class="text-sm">📞 08-987654</p>
           </div>
         </div>
+      </div>
 
-        <!-- للشاشات الكبيرة - التصميم العادي -->
-        <div class="hidden md:block">
-          <h3 class="text-xl font-bold mb-4 footer-title">أصنافنا</h3>
-          <div class="space-y-2">
-            <a href="products.html?category=gateh" class="text-black block hover:text-red-800 transition-all duration-300 py-1">
-              جاتوه
-            </a>
-            <a href="products.html?category=cake-pieces" class="text-black block hover:text-red-800 transition-all duration-300 py-1">
-              قطع كيك
-            </a>
-            <a href="products.html?category=batfor" class="text-black block hover:text-red-800 transition-all duration-300 py-1">
-              بتفور
-            </a>
-            <a href="products.html?category=fridge-batfor" class="text-black block hover:text-red-800 transition-all duration-300 py-1">
-              بتفور تلاجة
-            </a>
-            <a href="products.html?category=croissant" class="text-black block hover:text-red-800 transition-all duration-300 py-1">
-              كوروسون
-            </a>
-            <a href="products.html?category=donuts" class="text-black block hover:text-red-800 transition-all duration-300 py-1">
-              دونات
-            </a>
+      <!-- أصنافنا - تصميم جديد للجوال -->
+      <div class="footer-dropdown md:hidden">
+        <div class="footer-dropdown-header">
+          <svg class="footer-dropdown-icon w-5 h-5" style="color: var(--main-color)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+          <h3 class="footer-title">أصنافنا</h3>
+        </div>
+        <div class="footer-dropdown-content">
+          <div class="footer-dropdown-item">
+            <a href="products.html?category=gateh">جاتوه</a>
           </div>
+          <div class="footer-dropdown-item">
+            <a href="products.html?category=cake-pieces">قطع كيك</a>
+          </div>
+          <div class="footer-dropdown-item">
+            <a href="products.html?category=batfor">بتفور</a>
+          </div>
+          <div class="footer-dropdown-item">
+            <a href="products.html?category=fridge-batfor">بتفور تلاجة</a>
+          </div>
+          <div class="footer-dropdown-item">
+            <a href="products.html?category=croissant">كوروسون</a>
+          </div>
+          <div class="footer-dropdown-item">
+            <a href="products.html?category=donuts">دونات</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- للشاشات الكبيرة - التصميم العادي -->
+      <div class="hidden md:block">
+        <h3 class="text-xl font-bold mb-4 footer-title">أصنافنا</h3>
+        <div class="space-y-2">
+          <a href="products.html?category=gateh" class="text-black block hover:text-red-800 transition-all duration-300 py-1">
+            جاتوه
+          </a>
+          <a href="products.html?category=cake-pieces" class="text-black block hover:text-red-800 transition-all duration-300 py-1">
+            قطع كيك
+          </a>
+          <a href="products.html?category=batfor" class="text-black block hover:text-red-800 transition-all duration-300 py-1">
+            بتفور
+          </a>
+          <a href="products.html?category=fridge-batfor" class="text-black block hover:text-red-800 transition-all duration-300 py-1">
+            بتفور تلاجة
+          </a>
+          <a href="products.html?category=croissant" class="text-black block hover:text-red-800 transition-all duration-300 py-1">
+            كوروسون
+          </a>
+          <a href="products.html?category=donuts" class="text-black block hover:text-red-800 transition-all duration-300 py-1">
+            دونات
+          </a>
         </div>
       </div>
 
@@ -1160,58 +1257,29 @@
         });
       });
 
+      // Footer dropdown functionality - NEW
+      document.querySelectorAll('.footer-dropdown-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const dropdown = header.parentElement;
+          dropdown.classList.toggle('active');
+          
+          // Close other dropdowns
+          document.querySelectorAll('.footer-dropdown').forEach(otherDropdown => {
+            if (otherDropdown !== dropdown) {
+              otherDropdown.classList.remove('active');
+            }
+          });
+        });
+      });
 
-// Dropdown functionality for mobile only
-  const branchesDropdown = document.getElementById('branchesDropdown');
-  const branchesList = document.getElementById('branchesList');
-  const categoriesDropdown = document.getElementById('categoriesDropdown');
-  const categoriesList = document.getElementById('categoriesList');
-
-  // Toggle branches dropdown - للجوال فقط
-  if (branchesDropdown) {
-    branchesDropdown.addEventListener('click', (e) => {
-      e.stopPropagation();
-      branchesList.classList.toggle('hidden');
-      if (categoriesList) categoriesList.classList.add('hidden');
-      
-      // Rotate arrow
-      const arrow = branchesDropdown.querySelector('svg');
-      arrow.classList.toggle('rotate-180');
-    });
-  }
-
-  // Toggle categories dropdown - للجوال فقط
-  if (categoriesDropdown) {
-    categoriesDropdown.addEventListener('click', (e) => {
-      e.stopPropagation();
-      categoriesList.classList.toggle('hidden');
-      if (branchesList) branchesList.classList.add('hidden');
-      
-      // Rotate arrow
-      const arrow = categoriesDropdown.querySelector('svg');
-      arrow.classList.toggle('rotate-180');
-    });
-  }
-
-  // Close dropdowns when clicking outside - للجوال فقط
-  document.addEventListener('click', () => {
-    if (branchesList) branchesList.classList.add('hidden');
-    if (categoriesList) categoriesList.classList.add('hidden');
-    
-    // Reset arrows
-    const arrows = document.querySelectorAll('#branchesDropdown svg, #categoriesDropdown svg');
-    arrows.forEach(arrow => {
-      if (arrow) arrow.classList.remove('rotate-180');
-    });
-  });
-
-  // Prevent dropdowns from closing when clicking inside them - للجوال فقط
-  if (branchesList) {
-    branchesList.addEventListener('click', (e) => e.stopPropagation());
-  }
-  if (categoriesList) {
-    categoriesList.addEventListener('click', (e) => e.stopPropagation());
-  }
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.footer-dropdown')) {
+          document.querySelectorAll('.footer-dropdown').forEach(dropdown => {
+            dropdown.classList.remove('active');
+          });
+        }
+      });
     </script>
   </body>
 </html>
